@@ -1,0 +1,14 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 50px;
+  flex-wrap: wrap;
+}
+.board button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  background-color: #eee;
+  font-size: 25px;
+}
