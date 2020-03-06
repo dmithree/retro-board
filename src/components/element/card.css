@@ -1,0 +1,85 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 20px;
+  border-radius: 5px;
+  margin: 2px 0;
+  border: 5px solid rgba(0,0,0,0.06);
+  box-shadow: 0 6px 3px -5px rgba(0,0,0,0.7);
+  /* box-shadow: 0 0 0 5px rgba(0,0,0,0.08); */
+}
+
+.card .content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 0;
+}
+.content h2 {
+  color: white;
+  line-height: 0;
+}
+.content button, .opts button {
+  background: none;
+}
+.content button i, .opts button i{
+  color: rgba(0,0,0,0.5);
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+  border: none;
+}
+.content button i {
+  font-size: 30px;
+  background-color: rgba(0,0,0,0.1);
+  padding: 3px;
+}
+.content input {
+  width: 85%;
+  background: none;
+  border: 2px solid rgba(0,0,0,0.1);
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: #fff;
+  font-family: 'Nunito';
+}
+.content input::placeholder{
+  color: white;
+}
+
+.comments p {
+  color: rgba(0,0,0, 0.4);
+  line-height: 0;
+}
+
+.opts {
+  display: flex;
+  justify-content: space-between;
+}
+.opts .left p {
+  color: rgba(0,0,0,0.5);
+  font-weight: bold;
+}
+.opts .left, .opts .right {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.opts button .bx-trash {
+  color: #fff;
+  padding: 2px;
+  font-size: 15px;
+  background-color: #fd5e53;
+}
+.opts button .bx-move-horizontal, .opts button .bxs-upvote, .opts button .bxs-downvote {
+  color: #fff;
+  padding: 2px;
+  font-size: 15px;
+  background-color: rgba(0,0,0,0.3);
+}
+.opts button .bx-move-horizontal {
+    background-color: #f0cf85;
+}

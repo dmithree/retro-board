@@ -1,0 +1,27 @@
+.board {
+  /* display: flex; */
+  /* flex-direction: column; */
+  width: 100%;
+  margin: 20px 2px;
+  padding: 10px 5px;
+  /* flex-wrap: nowrap; */
+  background-color: #efefef;
+  border-radius: 8px;
+  border-top: 0.5px solid white;
+  box-shadow: 0 1px 5px -1px rgba(0,0,0,0.5);
+  transition: all 0.5s ease;
+}
+.board .header {
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.board button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  border: none;
+  background: none;
+  font-size: 45px;
+}

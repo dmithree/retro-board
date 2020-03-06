@@ -1,6 +1,25 @@
 @import url('https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css');
+
 .App {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  padding: 0 15%;
+  padding: 0 10%;
+  background-color: #7d7d7d;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+}
+.top button {
+  background: none;
+  border: none;
+}
+.top button i {
+  font-size: 50px;
+  padding: 0;
+  color: rgba(0,0,0,0.15);
 }

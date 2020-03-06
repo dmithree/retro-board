@@ -1,63 +1,67 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 
-import Board from './component/container/board';
-import Card from './component/element/card'
+// import { StateContext } from './contexts/stateContext';
+import { StateProvider } from './contexts/stateContext';
 
+import Board from './components/container/board';
+// import Card from './components/element/card'
 
 function App() {
-  const [wentWell, setWentWell] = useState([]);
-  const [toImprove, setToImprove] = useState([]);
-  const [actionItems, setActionItems] = useState([]);
-
+  // const [state, setState] = React.useContext(StateContext);
+  // const [wentWell, setWentWell] = useState([]);
+  // const [toImprove, setToImprove] = useState([]);
+  // const [actionItems, setActionItems] = useState([]);
+  // const [state, setState] = useState({
+  //   wentWell:[
+  //     {
+  //       id:0,
+  //       text:'Refactoring retro-board state.',
+  //       like:10,
+  //       comment:['Refactor code to use Context.']
+  //     }
+  //   ],
+  //   toImprove:[],
+  //   actionItems:[]
+  // });
+  // console.log("state: ", state);
   return (
-    <div className="App">
-      <Board title="Went Well" state="wentWell" setState="setWentWell" wentWell={wentWell} setWentWell={setWentWell}>
+    <StateProvider>
+      <div className='top'>
+        <h1>Retrospective Board</h1>
+        <button><i className='bx bx-menu bx-rotate-90 bx-border'></i></button>
+      </div>
+      <div className="App">
+        <Board title="Went Well" board="wentWell" cardColor="#589167" />
+        <Board title="To Improve" board="toImprove" cardColor="#df7861" />
+        <Board title="Action Items" board="actionItems" cardColor="#6384b3" />
         {
-          wentWell.map((ignoreThis, idx) => {
-            return <Card
-              bg="#357376"
-              key={idx}
-              idx={idx}
-              state="wentWell"
-              setState="setWentWell"
-              wentWell={wentWell}
-              setWentWell={setWentWell}
-            />
-          })
-        }
-      </Board>
-      <Board title="To Improve" state="toImprove" setState="setToImprove" toImprove={toImprove} setToImprove={setToImprove}>
-        {
-          toImprove.map((ignoreThis, idx) => {
-            return <Card
-              bg="#9d0b0b"
-              key={idx}
-              idx={idx}
-              state="toImprove"
-              setState="setToImprove"
-              toImprove={toImprove}
-              setToImprove={setToImprove}
-            />
-          })
-        }
-      </Board>
-      <Board title="Action Items" state="actionItems" setState="setActionItems" actionItems={actionItems} setActionItems={setActionItems}>
-        {
-          actionItems.map((ignoreThis, idx) => {
-            return <Card
-              bg="#fcc169"
-              key={idx}
-              idx={idx}
-              state="actionItems"
-              setState="setActionItems"
-              actionItems={actionItems}
-              setActionItems={setActionItems}
-            />
-          })
-        }
-      </Board>
-    </div>
+        // <Board title="Went Well" board="wentWell">
+        //   {
+        //     state.wentWell.map((item, idx) => {
+        //       return <Card
+        //         bg="#357376"
+        //         key={idx}
+        //
+        //         item={item}
+        //       />
+        //     })
+        //   }
+        // </Board>
+        // <Board title="To Improve" board="toImprove">
+        //   {
+        //     state.toImprove.map((item, idx) => {
+        //       return <Card
+        //         bg="#f5f5f5"
+        //         key={idx}
+        //
+        //         item={item}
+        //       />
+        //     })
+        //   }
+        // </Board>
+      }</div>
+    </StateProvider>
   );
 }
 
