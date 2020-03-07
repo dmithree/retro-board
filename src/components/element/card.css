@@ -50,6 +50,9 @@
   color: white;
 }
 
+.comments {
+  display: flex;
+}
 .comments p {
   color: rgba(0,0,0, 0.4);
   line-height: 0;
@@ -74,12 +77,14 @@
   font-size: 15px;
   background-color: #fd5e53;
 }
-.opts button .bx-move-horizontal, .opts button .bxs-upvote, .opts button .bxs-downvote {
+.comments button .bx-show-alt, .opts button .bxs-upvote, .opts button .bxs-downvote {
   color: #fff;
   padding: 2px;
   font-size: 15px;
   background-color: rgba(0,0,0,0.3);
 }
-.opts button .bx-move-horizontal {
+.comments button .bx-show-alt {
     background-color: #f0cf85;
+    padding: 1px;
+    font-size: 10px;
 }

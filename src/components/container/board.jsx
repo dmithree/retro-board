@@ -7,6 +7,40 @@ import {StateContext} from '../../contexts/stateContext';
 function Board(props) {
   const [state, setState] = React.useContext(StateContext);
   const [animation, setAnimation] = React.useState('');
+  const [dropBox, setDropBox] = React.useState({});
+
+  const drop = e => {
+    e.preventDefault();
+    setAnimation('animated bounceIn');
+    setDropBox({});
+    e.target.style.padding = 'auto';
+    const id = e.dataTransfer.getData('id');
+    const board = e.dataTransfer.getData('board');
+
+    const stateCopy = {...state};
+    const card = stateCopy[board].filter(i => parseInt(i.id) === parseInt(id));
+    const newBoard = stateCopy[board].filter(i => parseInt(i.id) !== parseInt(id));
+    //
+    stateCopy[board] = newBoard;
+    //
+    // console.log(newBoard);
+    // board -> origin
+    // props.board -> destination
+
+    stateCopy[props.board].push(card[0]);
+
+    // THE IDS HAVE TO BE UNIQUE
+
+    // console.log({card});
+
+    setState(stateCopy);
+    console.log(state);
+    // const card = document.getElementById(id);
+    // e.target.appendChild(card);
+
+
+    // card.style.display='block';
+  };
 
   const createCard = () => {
     setAnimation('animated bounceIn');
@@ -25,8 +59,8 @@ function Board(props) {
     setState(stateCopy);
   };
   return (
-    <div className="board ">
-      <div className='header'>
+    <div className="board" onDrop={drop} onDragOver={ e=>e.preventDefault() } style={dropBox}>
+      <div className='header' onDragOver={e=> e.stopPropagation()}>
         <h1>{props.title}</h1>
         <button onClick={createCard}><i className='bx bx-list-plus'></i></button>
       </div>
@@ -34,6 +68,7 @@ function Board(props) {
           state[props.board].map((item, idx) => {
             return <div className={animation} key={'card-'+idx}>
               <Card
+                setDropBox={setDropBox}
                 bg={props.cardColor}
                 key={idx}
                 board={props.board}

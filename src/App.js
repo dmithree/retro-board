@@ -8,6 +8,9 @@ import Board from './components/container/board';
 // import Card from './components/element/card'
 
 function App() {
+  const [layoutIcon, setLayoutIcon] = React.useState('');
+  const [layout, setLayout] = React.useState({flexDirection:'row'});
+
   // const [state, setState] = React.useContext(StateContext);
   // const [wentWell, setWentWell] = useState([]);
   // const [toImprove, setToImprove] = useState([]);
@@ -25,13 +28,20 @@ function App() {
   //   actionItems:[]
   // });
   // console.log("state: ", state);
+
+  const handleLayout = () => {
+    layoutIcon !== '' ? setLayoutIcon('') : setLayoutIcon('bx-rotate-90');
+    layout.flexDirection === 'row' ? setLayout({flexDirection:'column'}) : setLayout({flexDirection:'row'});
+  };
+
   return (
     <StateProvider>
       <div className='top'>
         <h1>Retrospective Board</h1>
-        <button><i className='bx bx-menu bx-rotate-90 bx-border'></i></button>
+        <button onClick={handleLayout}><i className={'bx bx-menu bx-border '+layoutIcon}></i></button>
       </div>
-      <div className="App">
+      <div className="App" style={layout}>
+
         <Board title="Went Well" board="wentWell" cardColor="#589167" />
         <Board title="To Improve" board="toImprove" cardColor="#df7861" />
         <Board title="Action Items" board="actionItems" cardColor="#6384b3" />
