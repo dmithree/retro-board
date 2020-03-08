@@ -36,7 +36,7 @@ yarn start
 
 ## Deployment
 
-Although functional, this is just a **concept**; it could be *improved* but is not ready for a live system.
+Although functional, this is just a **concept**; it could be *improved* but is not ready for production. All feedback is welcomed.
 
 ## Built With
 
