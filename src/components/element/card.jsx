@@ -29,11 +29,13 @@ function Card(props) {
     e.dataTransfer.setData('board', props.board);
     props.setDropBox({border:'5px dashed grey',height:'200px'});
 
-    setTimeout(()=>{e.target.style.visibility = 'hidden'}, 0);
+    setTimeout(()=>{
+      e.target.style.display = 'none';
+    }, 0);
   };
   const dragEnd = e => {
     e.persist();
-    setTimeout(()=>{e.target.style.visibility = 'visible'}, 0);
+    setTimeout(()=>{e.target.style.display = 'flex'}, 0);
     props.setDropBox({});
 
     if(props.item.text === ''){
@@ -53,7 +55,6 @@ function Card(props) {
     setState(stateCopy);
 
     props.item.text === '' ? setValidation({style:{borderColor:'#eb4d55'},class:'animated shake'}) : setEdit(false);
-    // edit && setText('');
     setTimeout(()=>{
       edit ? setValidation({style:{borderColor:''},class:''}) : setValidation({style:{},class:''});
     },1000);
