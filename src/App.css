@@ -3,10 +3,8 @@
 
 .App {
   display: flex;
-  /* flex-direction: row; */
   justify-content: space-between;
   padding: 0 10%;
-  background-color: #7d7d7d;
 }
 
 .top {

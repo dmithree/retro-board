@@ -1,13 +1,20 @@
 .card {
+  cursor: grab;
   position: relative;
   display: flex;
   flex-direction: column;
   padding: 5px 20px;
   border-radius: 5px;
-  margin: 2px 0;
+  margin: 2px 2px;
   border: 5px solid rgba(0,0,0,0.06);
   box-shadow: 0 6px 3px -5px rgba(0,0,0,0.7);
-  /* box-shadow: 0 0 0 5px rgba(0,0,0,0.08); */
+  transition: all 0.5s ease, visibility 0.1s;
+}
+
+.card:hover{
+  border: 5px dashed rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 10px -5px rgba(0,0,0,0.7);
 }
 
 .card .content {
@@ -19,7 +26,7 @@
 }
 .content h2 {
   color: white;
-  line-height: 0;
+  line-height: 22px;
 }
 .content button, .opts button {
   background: none;
@@ -77,14 +84,68 @@
   font-size: 15px;
   background-color: #fd5e53;
 }
-.comments button .bx-show-alt, .opts button .bxs-upvote, .opts button .bxs-downvote {
+
+.comments button .bxs-comment, .opts button .bxs-upvote, .opts button .bxs-downvote {
   color: #fff;
   padding: 2px;
   font-size: 15px;
   background-color: rgba(0,0,0,0.3);
 }
-.comments button .bx-show-alt {
+.comments button .bxs-comment {
     background-color: #f0cf85;
     padding: 1px;
     font-size: 10px;
+}
+.allComments {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255,255,255,0.1);
+  padding: 7px;
+  border-radius: 7px;
+  transition: all 0.5s ease-in-out;
+}
+.allComments .addComment {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.addComment input {
+  border: none;
+  width: 100%;
+  border-radius: 1px;
+  color: rgba(255,255,255,0.9);
+  padding: 2px;
+  margin: 2px;
+  line-height: 5px;
+  height: 100%;
+  background-color: rgba(0,0,0,0.2);
+}
+.addComment button {
+  padding: 0;
+  margin: 0;
+}
+.addComment button i {
+  font-size: 12px;
+  margin: 1px;
+  background-color: rgba(0,0,0,0.2);
+  color: rgba(0,0,0,0.3);
+}
+.allComments .comment {
+  display: flex;
+  align-items: flex-start;
+
+  /* flex-wrap: wrap; */
+  /* border: 1px solid rgba(0,0,0,0.2); */
+  padding: 0;
+  line-height: 0;
+  /* color: rgba(255,255,255,0.6); */
+  color: rgba(0,0,0,0.4);
+  margin: 1px 0;
+}
+.allComments .comment span {
+  word-break: break-all;
+  padding: 0 5px;
+  margin: 0 2px;
+  line-height: 18px;
+  border-left: 2px solid rgba(0, 0, 0, 0.5);
 }

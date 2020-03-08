@@ -10,7 +10,7 @@ import Board from './components/container/board';
 function App() {
   const [layoutIcon, setLayoutIcon] = React.useState('');
   const [layout, setLayout] = React.useState({flexDirection:'row'});
-
+  const [dropBox, setDropBox] = React.useState({});
   // const [state, setState] = React.useContext(StateContext);
   // const [wentWell, setWentWell] = useState([]);
   // const [toImprove, setToImprove] = useState([]);
@@ -28,12 +28,10 @@ function App() {
   //   actionItems:[]
   // });
   // console.log("state: ", state);
-
   const handleLayout = () => {
     layoutIcon !== '' ? setLayoutIcon('') : setLayoutIcon('bx-rotate-90');
     layout.flexDirection === 'row' ? setLayout({flexDirection:'column'}) : setLayout({flexDirection:'row'});
   };
-
   return (
     <StateProvider>
       <div className='top'>
@@ -42,9 +40,9 @@ function App() {
       </div>
       <div className="App" style={layout}>
 
-        <Board title="Went Well" board="wentWell" cardColor="#589167" />
-        <Board title="To Improve" board="toImprove" cardColor="#df7861" />
-        <Board title="Action Items" board="actionItems" cardColor="#6384b3" />
+        <Board title="Went Well" board="wentWell" cardColor="#589167" style={dropBox} setDropBox={setDropBox} />
+        <Board title="To Improve" board="toImprove" cardColor="#df7861" style={dropBox} setDropBox={setDropBox} />
+        <Board title="Action Items" board="actionItems" cardColor="#6384b3" style={dropBox} setDropBox={setDropBox} />
         {
         // <Board title="Went Well" board="wentWell">
         //   {
