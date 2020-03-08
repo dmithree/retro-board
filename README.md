@@ -36,7 +36,7 @@ yarn start
 
 ## Deployment
 
-Although functional, this is just a **concept**; it could be *improved* but is not ready for production; if you are interested find out more about deployment [here](bit.ly/CRA-deploy). All feedback is welcomed.
+Although functional, this is just a **concept**; it could be *improved* but is not ready for production; if you are interested, find out more about deployment [here](https://bit.ly/CRA-deploy). All feedback is welcomed.
 
 ## Built With
 
