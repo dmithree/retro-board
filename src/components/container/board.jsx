@@ -12,7 +12,7 @@ function Board(props) {
     e.preventDefault();
     setAnimation('animated bounceIn');
     props.setDropBox({});
-    
+   
     const id = e.dataTransfer.getData('id');
     const board = e.dataTransfer.getData('board');
 

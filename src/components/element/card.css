@@ -133,12 +133,8 @@
 .allComments .comment {
   display: flex;
   align-items: flex-start;
-
-  /* flex-wrap: wrap; */
-  /* border: 1px solid rgba(0,0,0,0.2); */
   padding: 0;
   line-height: 0;
-  /* color: rgba(255,255,255,0.6); */
   color: rgba(0,0,0,0.4);
   margin: 1px 0;
 }
