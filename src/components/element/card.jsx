@@ -30,6 +30,8 @@ function Card(props) {
     props.setDropBox({border:'5px dashed grey',height:'200px'});
     setCommentStyle({display: 'none'});
 
+    props.edit ? setEdit(true) : setEdit(false);
+
     setTimeout(()=>{
       e.target.style.display = 'none';
     }, 0);

@@ -7,12 +7,13 @@ import {StateContext} from '../../contexts/stateContext';
 function Board(props) {
   const [state, setState] = React.useContext(StateContext);
   const [animation, setAnimation] = React.useState('');
+  const [edit, setEdit] = React.useState(false);
 
   const drop = e => {
     e.preventDefault();
     setAnimation('animated bounceIn');
     props.setDropBox({});
-   
+
     const id = e.dataTransfer.getData('id');
     const board = e.dataTransfer.getData('board');
 
@@ -27,6 +28,12 @@ function Board(props) {
     }
     card[0].id = newId;
     stateCopy[props.board].push(card[0]);
+
+    if(stateCopy[board].length > 0 && stateCopy[board][0].text === ''){
+      setEdit(true);
+    }else {
+      setEdit(false);
+    }
 
     setState(stateCopy);
   };
@@ -83,6 +90,7 @@ function Board(props) {
           state[props.board].map((item, idx) => {
             return <div className={animation} key={'card-'+idx}>
               <Card
+                edit={edit}
                 setDropBox={props.setDropBox}
                 bg={props.cardColor}
                 key={idx}
