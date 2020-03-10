@@ -28,14 +28,16 @@ function Card(props) {
     e.dataTransfer.setData('id', e.target.id);
     e.dataTransfer.setData('board', props.board);
     props.setDropBox({border:'5px dashed grey',height:'200px'});
+    setCommentStyle({display: 'none'});
 
     setTimeout(()=>{
       e.target.style.display = 'none';
     }, 0);
   };
+
   const dragEnd = e => {
     e.persist();
-    setTimeout(()=>{e.target.style.display = 'flex'}, 0);
+    setTimeout(()=>{e.target.style.display = 'inherit'}, 0);
     props.setDropBox({});
 
     if(props.item.text === ''){
@@ -67,10 +69,12 @@ function Card(props) {
       const boardCopy = stateCopy[props.board].filter((i)=> i.id !== props.item.id);
       stateCopy[props.board] = boardCopy;
       setState(stateCopy);
-
+      console.log(stateCopy[props.board][0])
       if(stateCopy[props.board].length > 0 && stateCopy[props.board][0].text === ''){
         setEdit(true);
         setText('');
+      }else {
+        setEdit(false);
       }
     },750);
   };
